@@ -1,0 +1,862 @@
+body {
+    font-family: calibri, sans serif;
+    background-color: lightsteelblue;
+    color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 1rem;
+  font-size:15px;
+}
+
+#caption {
+    color: black;
+}
+
+#freq {
+    color: black;
+}
+
+.quotesOutput {
+    text-align: center;
+    background: #dde1ff;
+    padding: 20px;
+    min-height: 50px;
+    margin-bottom: 20px;
+}
+button {
+    display: block;
+    width: 150px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 600;
+    background: #4b00ff;
+    color: #fff;
+    border: transparent;
+    margin: auto;
+    cursor: pointer;
+}
+p#generatedQuote {
+    font-size: 16px;
+    font-weight: 800;
+}
+
+ form
+{
+  display: inline-block;
+  background-color: indianred;
+  padding: 6px;
+}
+
+label{
+  display: block;
+  
+}
+
+input{
+  direction: ltr; 
+}
+
+label::after{
+  content: attr(data-text);
+}
+
+.Scontainer {
+grid-column: 1/13;
+align-content: center;
+}
+.slider-container {
+    max-width: 1280px;
+    height: auto;
+    margin: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prev-button,
+.next-button {
+    width: 40px;
+    height: 60px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+
+}
+
+.prev-button {
+    left: 0;
+	color: black;
+}
+.next-button {
+    right: 0;
+	color: black;
+}
+
+.prev-button:hover,
+.next-button:hover{
+    color: grey;
+}
+
+.lines {
+    position: absolute;
+    display: flex;
+    bottom: 10px;
+}
+
+.line {
+    padding: 3px 15px;
+    margin: 0 3px;
+    background-color: black;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.line:hover {
+    background-color: white;
+}
+
+.slider {
+   display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 55%;
+    text-align: center;
+}
+
+.accordion {
+  width: 900px;
+  margin: 10px auto;
+  color: black;
+  background-color: grey;
+  padding: 25px 25px;
+    display: block;
+}
+
+.accordion .accordionContainer {
+  position: relative;
+  margin: 5px 5px;
+}
+
+.accordion .label {
+  position: relative;
+  padding: 10px 0;
+  font-size: 30px;
+  color: black;
+  cursor: pointer;
+}
+
+.accordion .label::before {
+  content: '+';
+  color: black;
+  
+  right: -5px;
+  font-size: 30px;
+  transform: translateY(-50%);
+}
+
+.accordion .content {
+  position: relative;
+  background: white;
+  height: 0;
+  font-size: 20px;
+  text-align: justify;
+  width: 600px;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.accordion hr {
+  width: 100;
+  margin-left: 0;
+  border: 1px solid grey;
+}
+
+.accordion .accordionContainer.active .content {
+  height: 100px;
+}
+
+.accordion .accordionContainer.active .label::before {
+  content: '-';
+  font-size: 30px;
+}
+
+
+#imagesList {
+    background-color: salmon; 
+    text-align: center
+}
+#main-image {
+    height: 400px;
+    width: 500px; 
+    background-color: darksalmon;
+    margin-left: 25%;
+}
+#imagesList img {
+    max-height: 250px;
+    max-width: 300px;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-container {
+	position: relative;
+	display: inline-block;
+	margin: 4px 2px;
+	height: 50px;
+	width: 50px;
+	vertical-align: middle;
+}
+
+.searchbutton: hover {
+    background-color: #9B1E12;
+    color: white;
+}
+
+.mglass {
+	display: inline-block;
+	pointer-events: none;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+}
+
+.searchbutton {
+	position: absolute;
+	font-size: 22px;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.search:focus + .searchbutton {
+	transition-duration: 0.4s;
+	-moz-transition-duration: 0.4s;
+	-webkit-transition-duration: 0.4s;
+	-o-transition-duration: 0.4s;
+	background-color: #9B1E12;
+	color: black;
+}
+
+.search {
+	position: absolute;
+	left: 49px; /* Button width-1px (Not 50px/100% because that will sometimes show a 1px line between the search box and button) */
+	background-color: white;
+	outline: none;
+	border: none;
+	padding: 0;
+	width: 0;
+	height: 100%;
+	z-index: 10;
+	transition-duration: 0.4s;
+	-moz-transition-duration: 0.4s;
+	-webkit-transition-duration: 0.4s;
+	-o-transition-duration: 0.4s;
+}
+
+.search:focus {
+	width: 150px; /* Bar width+1px */
+	padding: 0 16px 0 0;
+}
+
+.expandright {
+	left: auto;
+	right: 49px; /* Button width-1px */
+}
+
+.expandright:focus {
+	padding: 0 0 0 16px;
+}
+
+.date-time {
+  font-size: 10px;
+  padding: 24px;
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  width: 400px;
+  font-weight: 500;
+}
+
+#countdownContainer{
+  min-height: 200px;
+  position: relative;
+}
+
+#countdown{
+  text-align: center;
+  font-size:56px;
+  background-color: #333333;
+  color: #fff;
+  min-width: 380px;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#clockContainer{
+  min-height: 200px;
+  position: relative;
+}
+#clock{
+  text-align: center;
+  font-size:62px;
+  background-color: #333333;
+  color: #fff;
+  min-width: 380px;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.contain_bmi{
+    background-color: #ffffff;
+    padding: 40px 30px;
+    width: 50%;
+    min-width: 400px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 5px;
+    font-family: 'Poppins',sans-serif;
+    box-shadow: 25px 25px 30px rgba(0,0,0,0.15);
+}
+
+.accordion {
+    background-color: #ffffff;
+    width: 50%;
+    min-width: 400px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    border-radius: 2px;
+    font-family: 'Poppins',sans-serif;
+    box-shadow: 25px 25px 30px rgba(0,0,0,0.15);
+}
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+.row span{
+    font-weight: 500;
+}
+input[type="range"]{
+    width: 70%;
+    height: 3.5px;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #dcdcdc;
+    border-radius: 3px;
+    outline: none;
+}
+input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    height: 15px;
+    width: 15px;
+    background-color: #1c1c1c;
+    border-radius: 50%;
+    cursor: pointer;
+}
+#result{
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #0be881;
+}
+#category{
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+
+.hideAndShow{
+    position: absolute;
+    width: 25px;
+    cursor: pointer;
+    margin-left: -30px;
+}
+
+.contain, .accordion-body {
+  max-width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 24em;
+  padding-bottom: 24em;
+}
+@media only screen and (min-width: 600px) {
+    
+#main-image {
+    height: 400px;
+    width: 500px; 
+    background-color: darksalmon;
+    margin-left: 25%;
+}
+    
+    }
+
+
+    
+  .contain {
+    padding: 0;
+  }
+}
+
+h3,
+ul {
+  margin: 0;
+}
+
+h3 {
+  margin-bottom: 1rem;
+}
+
+input,
+textarea,
+button {
+  width: 100%;
+  border: 1px solid #000;
+}
+
+.wrapper {
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+}
+.wrapper > * {
+  padding: 1em;
+}
+@media only screen and (min-width: 700px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+  .wrapper > * {
+    padding: 2em 2em;
+  }
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contacts {
+  background-color: salmon;
+  color: black;
+}
+
+.bmi_container{
+  background-color: #F19188;
+  color: black;
+  grid-column: 1/13;
+  text-align: center;
+  margin: 5px;
+}
+
+.form {
+  background: #fff;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr fr;
+  grid-gap: 20px;
+}
+form label {
+  display: block;
+}
+form p {
+  margin: 0;
+}
+
+.full-width {
+  grid-column: 1 / 3;
+}
+
+button,
+input,
+textarea {
+  padding: 1em;
+}
+
+button {
+  background: lightgrey;
+  width: 100%;
+  border: 0;
+}
+
+label {
+    grid-column: 1/2;
+}
+
+input {
+    grid-column: 2/3;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: auto;
+    padding: 0;
+    overflow: hidden;
+    background-color: #9B1E12;
+}
+
+nav ul li {
+    /* compound */
+    text-align: left;
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    /* this is an example of padding */
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: black;
+    color: white;
+}
+
+.navBar a.active {
+    background-color: #2196F3;
+    color: white;
+}
+
+.gettingFitter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 55%;
+    text-align: center;
+}
+
+.below {
+    background-color: black;
+    padding-bottom: 10%;
+    color: black;
+    padding: 1em;
+    text-align: center;
+}
+
+.below,
+.below p {
+    text-align: center;
+    padding: 10px;
+    background-color: #9B1E12;
+    color: black;
+    grid-column-start: 1;
+    grid-column-end: 13;
+}
+
+.social-icon,
+.menu {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    flex-wrap: wrap;
+    color: white;
+}
+
+.social-icon__item,
+.menu__item {
+    list-style: none;
+}
+
+.social-icon__link {
+    font-size: 2rem;
+    color: #fff;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+}
+
+.social-icon__link:hover {
+    transform: translateY(-10px);
+    background-color: #E73D2D;
+}
+
+.menu__link {
+    font-size: 1.2rem;
+    color: #fff;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+    text-decoration: none;
+    font-weight: 300;
+}
+
+.menu__link:hover {
+    opacity: 10;
+}
+
+
+.homeIcon {
+    width: 20px;
+    height: 20px;
+    margin-left: auto;
+}
+
+.headerText p {
+    color: white;
+    padding-left: 1em;
+    padding-right: 1em;
+    font-size: 2em;
+}
+
+.headerText {
+    background-color: indianred;
+    text-align: left;
+    padding: .05em;
+}
+
+.Header {
+    text-align: center;
+}
+
+p {
+    color: black;
+}
+
+img {
+    max-width: 100%;
+}
+
+.Exercises {
+    background-color: #F19188;
+}
+
+h2 {
+    font-size: 25px;
+    text-align: center;
+}
+
+h1,
+h2 {
+    color: white;
+}
+
+article {
+    background-color: indianred;
+}
+
+h1 {
+    text-align: center;
+}
+
+article p {
+    padding: 5px;
+    color: white;
+}
+
+.converter {
+    background-color: #E73D2D;
+}
+
+.grid-container, .container {
+    width: 80%;
+    margin: auto;
+}
+
+/* margin */
+
+@media only screen and (max-width:629px) {
+
+    .headerText {
+        margin: 5px;
+    }
+}
+
+@media only screen and (min-width: 768px)
+
+    /* tablet mode*/{
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(4, 10.6%);
+        grid-template-columns: repeat(3, 10%);
+        width: 80%;
+    }
+
+    #img {
+        width: 100%;
+    }
+        
+        .countdown{
+            font-size: 50px;
+        }
+
+    .headerText {
+        grid-column: 1/7;
+        text-align: center;
+        margin: 5px;
+    }
+
+    .Exercises {
+        grid-column: 1/13;
+        text-align: center;
+        margin: 0px;
+    }
+
+    .Plank {
+        grid-column: 1/3;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .PushUps {
+        grid-column: 3/5;
+        max-width: 100%;
+        max-height: 100%;
+    }
+        
+    .Crunches {
+        grid-column: 5/7;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .Cycling {
+        grid-column: 9/11;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .Lunges {
+        grid-column: 1/3;
+        max-width: 100%;
+        max-height: 100%;
+    }
+        
+    .Starting {
+        grid-column: 3/5;
+    }
+
+    .Running {
+        grid-column: 3/6;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .JumpingJacks {
+        grid-column: 5/7;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    footer {
+        grid-column: 1/7;
+    }
+
+
+    @media only screen and (min-width: 992px)
+
+    /* desktop mode */
+        {
+
+        nav li {
+            display: inline;
+            font-size: 20px;
+        }
+
+        nav ul {
+            font-size: 5px;
+            text-align: center
+        }
+
+        nav img {
+            max-height: 150px;
+        }
+
+        .headerText {
+            grid-column: 1/13;
+            text-align: center;
+            margin: 5px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(12, 8.3%);
+            width: 60%;
+        }
+
+        .headerText {
+            grid-column: 1/13;
+            text-align: center;
+            margin: 5px;
+        }
+
+        .Exercises{
+            grid-column: 1/13;
+            text-align: center;
+            margin: 0px;
+        }
+
+        .Plank {
+            grid-column: 1/4;
+        }
+            
+        .PushUps {
+            grid-column: 4/7;
+        }
+    }
+        
+    .Crunches {
+        grid-column: 7/10;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .Cycling {
+        grid-column: 10/13;
+    }
+
+    .Lunges {
+        grid-column: 1/5;
+    }
+
+    .Starting {
+        grid-column: 1/5;
+    }
+
+    .Running {
+        grid-column: 5/9;
+    }
+
+    .JumpingJacks {
+        grid-column: 9/13;
+    }
+
+    footer {
+        grid-column: 1/13;
+        text-align: center;
+    }
+}

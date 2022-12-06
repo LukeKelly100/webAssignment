@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Fitness Inbound | Contact Us Page </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,inital-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style/css.css">
+    <link rel="icon" href="images/home.png" type="image/x-icon">
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" ></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    
+        $("document").ready(function() { 
+            $("#name, #phone, #email1, #topic, #messages").focusin(function(){
+                $(this).css("background-color", "lightgray");
+            });
+            
+            $("#name, #phone, #email1, #topic, #messages").focusout(function(){
+                $(this).css("background-color", "white");
+            });
+                
+            $("#name, #phone, #email1, #topic, #messages").mouseenter(function(){
+                $(this).css("background-color", "lightgray");
+            });
+            
+            $("#name, #phone, #email1, #topic, #messages").mouseleave(function(){
+                $(this).css("background-color", "white");
+            });
+            
+
+    });
+        
+        
+        function NameValidate() {
+            var name_val = document.getElementById("name").value;
+            if (name_val == null || name_val == "") {
+                document.getElementById("namesError").innerHTML = " Please enter your name";
+                return false;}
+            else document.getElementById("namesError").innerHTML = "*";
+            document.getElementById("namesError").style.color = "salmon";
+            
+            var phone_val = document.getElementById("phone").value;
+            if (phone_val == null || phone_val == "") {
+                document.getElementById("phoneError").innerHTML = " Please enter your number";
+                return false;}
+            else document.getElementById("phoneError").innerHTML = "*";
+            
+            var email1_val = document.getElementById("email1").value;
+            if (email1_val == null || email1_val == "") {
+                document.getElementById("emailError").innerHTML = " Please enter your email";
+                return false;}
+            else document.getElementById("emailError").innerHTML = "*";
+            
+            var topic_val = document.getElementById("topic").value;
+            if (topic_val == null || topic_val == "") {
+                document.getElementById("topicError").innerHTML = " Please enter your topic";
+                return false;}
+            else document.getElementById("topicError").innerHTML = "*";
+            
+            var messages_val = document.getElementById("messages").value;
+            if (messages_val == null || messages_val == "") {
+               document.getElementById("messagesError").innerHTML = " Please enter your message";
+                return false;}
+            else document.getElementById("messagesError").innerHTML = "*";}
+
+//            var email2_val = document.getElementById("email2").value;
+//            if (email2_val == null || email2_val == "") {
+//                alert("Please retype your Email");
+//                return false;
+//            }
+//
+//            var query_val = document.getElementById("query").value;
+//            if (query_val == null || query_val == "") {
+//                alert("Please type your query");
+//                return false;
+//            }
+//            return true;
+//        
+        
+    </script>
+        <div class="grid-navBar">
+            <nav>
+                <ul class="navBar">
+                    <li><a href="index.html">Home </a></li>
+                    <li><a href="information.html">Information </a></li>
+                    <li><a href="equipment.html">Equipment </a></li>
+                    <li><a href="admin.html">Administration Area </a></li>
+                    <li><a href="login.html">Log in </a></li>
+                    <li><a href="registration.html">Registration </a></li>
+                    <li><a class="active" href="contactUs.html">Contact Us</a></li>
+                    <li> <a href="index.html"> <img src="images/home.png" alt="home icon image" class="homeIcon"></a> </li>
+                    <div class="search-container">
+                    <input class="search expandright" id="searchright" type="search" name="q" placeholder="Search something">
+                    <label class="button searchbutton" for="searchright"><span class="mglass">&#9906;</span></label>
+                </div>
+                </ul>
+            </nav>
+        </div>
+    
+    <div class="container">
+
+        <h1> Contact Us! </h1>
+        <div class="headerText">
+            <p> We would love to hear from you! <br> Please use the Contact Form below!</p>
+        </div>
+        <br>
+
+        <div class="contain">
+
+  <div class="wrapper">
+    <div class="contacts">
+      <h3>Our Contacts</h3>
+
+      <ul>
+        <li>Moylish. Limerick</li>
+        <li>087-777-7777</li>
+        <li>fitnessinbound@gmail.com</li> </ul>
+        <p>Please feel free to do as much contacting to us as you would like, we are giving out these pieces of information
+            for a reason. Make sure to contact us 10 times even!</p>
+      
+    </div>
+
+    <div class="form" action="http://litstudentprojects.net/rwd-a2-response.php" id="form" method="post" onSubmit="return NameValidate();">
+      <h3>Send us a message</h3>
+      <form action="">
+        <p>
+          <label for="name">Name <a id="namesError">*</a><input type="text" name="name" id="name" placeholder="John Smith"></label>
+        </p>
+        <p>
+          <label for="phone">Phone Number <a id="phoneError">*</a><input type="tel" name="phone" id="phone" pattern="(08)(3|5|6|7|9)\d{7}" title="must start with 08(3,5,6,7,9) and have 10 numbers" placeholder="0873456726"></label>
+        </p>
+        <p>
+          <label for="email1">Email Address <a id="emailError">*</a><input type="email" name="email1" id="email1" placeholder="CiaranOConnor@gmail.com"></label>
+        </p>
+        <p>
+          <label for="topic">Topic <a id="topicError">*</a><input type="text" name="topic" id="topic" placeholder="Membership Pricing"></label>
+        </p>
+        <p class="full-width">
+          <label for="messages">Write your message <a id="messagesError">*</a>
+          <textarea name="messages" id="messages" cols="30" rows="7" placeholder="What is the price for a year membership?"></textarea></label>
+        </p>
+        <p class="full-width" input type="submit" value="Submit">
+          <button>Send Query</button>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+        <br>
+            <footer class="below">
+
+                <ul class="social-icon">
+                    <li class="social-icon__item"><a class="social-icon__link" href="https://www.facebook.com/">
+                            <ion-icon name="logo-facebook"></ion-icon>
+                        </a></li>
+                    <li class="social-icon__item"><a class="social-icon__link" href="https://twitter.com/">
+                            <ion-icon name="logo-twitter"></ion-icon>
+                        </a></li>
+                    <li class="social-icon__item"><a class="social-icon__link" href="https://www.linkedin.com/">
+                            <ion-icon name="logo-linkedin"></ion-icon>
+                        </a></li>
+                    <li class="social-icon__item"><a class="social-icon__link" href="https://www.instagram.com/">
+                            <ion-icon name="logo-instagram"></ion-icon>
+                        </a></li>
+                </ul>
+                <ul class="menu">
+                        <li class="menu__item"><a class="menu__link" href="index.html">Home</a></li>
+                        <li class="menu__item"><a class="menu__link" href="information.html">Information</a></li>
+                        <li class="menu__item"><a class="menu__link" href="equipment.html">Equipment</a></li>
+                        <li class="menu__item"><a class="menu__link" href="admin.html">Administration Area</a></li>
+                        <li class="menu__item"><a class="menu__link" href="login.html">Log In</a></li>
+                        <li class="menu__item"><a class="menu__link" href="registration.html">Registration</a></li>
+                        <li class="menu__item"><a class="menu__link" href="contactUs.html">Contact Us</a></li>
+                    </ul>
+                <div class="datetime">
+                    <p><span id='date-time'></span>.</p>
+                </div>
+                <script>
+                    var date = new Date();
+                    var current_date = date.getFullYear()+"/"+(date.getMonth()+1)+"/"+ date.getDate();
+                    var current_time = date.getHours()+":"+date.getMinutes()+":"+ date.getSeconds();
+                    var date_time = current_date+" "+current_time;	
+                    document.getElementById("date-time").innerHTML = date_time;
+                </script>
+                <p> K00273673 - Luke Kelly</p>
+                <p>&copy;2022 FitnessInbound | All Rights Reserved</p>
+                <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+                <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+            </footer>
+    </div>
+</body>
+
+</html>

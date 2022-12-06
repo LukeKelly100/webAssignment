@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title> Fitness Inbound | Information Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,inital-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style/css.css">
+    <link rel="icon" href="images/home.png" type="image/x-icon">
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function calculate(){
+            var bmi;
+            var result = document.getElementById("result");
+
+            var weight = parseInt(document.getElementById("weight").value);
+            document.getElementById("weight-val").textContent = weight + " kg";
+
+            var height = parseInt(document.getElementById("height").value);
+            document.getElementById("height-val").textContent = height + " cm";
+
+            bmi = (weight / Math.pow( (height/100), 2 )).toFixed(1);
+            result.textContent = bmi;
+    
+            if(bmi < 18.5){
+                category = "Underweight";
+                result.style.color = "blue";
+            }
+            else if( bmi >= 18.5 && bmi <= 24.9 ){
+                category = "Normal Weight";
+                result.style.color = "green";
+            }
+            else if( bmi >= 25 && bmi <= 29.9 ){
+                category = "Overweight";
+                result.style.color = "orange";
+            }
+            else{
+                category = "Obese";
+                result.style.color = "red";
+            }
+            document.getElementById("category").textContent = category;
+            }
+        
+        function displayTime(){
+            var d = new Date();
+            var hour = d.getHours(); // 0-23
+            var min = d.getMinutes(); // 0-59
+            var sec = d.getSeconds(); // 0-59
+            var amOrPm = "AM";
+            
+            if(hour >= 12){
+                amOrPm = "PM";
+                    }
+            if(hour > 12){
+                hour = hour - 12;
+                    }
+            if(hour < 10)
+                hour = "0" + hour;
+            if(min < 10)
+                min = "0" + min;
+            if(sec < 10)
+                sec = "0" + sec;
+            document.getElementById("clock").innerHTML = hour + ":" + min + ":" + sec + " " + amOrPm;
+                }
+            setInterval(displayTime, 1000);
+        
+        var countDownDate = new Date("Jan 1, 2023 00:00:00").getTime();
+
+// Update the count down every 1 second
+            var x = setInterval(function() {
+
+  // Get today's date and time
+            var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+            document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+  // If the count down is finished, write some text
+            if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdown").innerHTML = "EXPIRED";
+        }
+            }, 1000);
+        
+        function cmConverter(){
+document.converter.inch.value = (document.converter.cm.value / 2.54).toFixed(2);
+document.converter.feet.value = (document.converter.cm.value / 30.48).toFixed(2);
+}
+
+function inchConverter(){
+document.converter.cm.value = (document.converter.inch.value * 2.54).toFixed(2);
+document.converter.feet.value = (document.converter.inch.value / 12).toFixed(2);
+}
+
+function feetConverter(){
+document.converter.cm.value = (document.converter.feet.value * 30.48).toFixed(2);
+document.converter.inch.value = (document.converter.feet.value * 12).toFixed(2);
+}
+
+
+
+function Clear() {
+document.converter.cm.value ="";
+document.converter.feet.value="";
+document.converter.inch.value="";
+document.converter.cm.focus();
+}
+        
+    </script>
+
+
+    <div class="grid-navBar">
+
+        <nav>
+            <ul class="navBar">
+                <li> <a href="index.html">Home </a> </li>
+                <li> <a class="active" href="information.html">Information </a> </li>
+                <li> <a href="equipment.html">Equipment </a> </li>
+                <li> <a href="admin.html">Administration Area </a> </li>
+                <li> <a href="login.html">Log in </a> </li>
+                <li> <a href="registration.html">Registration </a> </li>
+                <li> <a href="contactUs.html">Contact Us </a> </li>
+                <li> <a href="index.html"> <img src="images/home.png" alt="home icon image" class="homeIcon"></a> </li>
+                <div class="search-container">
+                    <input class="search expandright" id="searchright" type="search" name="q" placeholder="Search something">
+                    <label class="button searchbutton" for="searchright"><span class="mglass">&#9906;</span></label>
+                </div>
+            </ul>
+        </nav>
+    </div>
+    
+    <div class="container">
+
+        <h1> Information </h1>
+        <div class="headerText">
+            <p> Experts define physical fitness as “one’s ability to execute daily activities with optimal performance, endurance, and strength with the management of disease, fatigue, and stress and reduced sedentary behavior". This description goes beyond being able to run quickly or lift heavy weights. Despite being important, these attributes only address single areas of fitness. </p>
+        </div>
+        <br>
+
+        <div class="contain">
+    <div class="wrapper">
+    <div class="bmi_container">
+        <div class="row">
+            <input type="range" min="20" max="200" value="20" id="weight" oninput="calculate()">
+            <span id="weight-val">20 kg</span>
+        </div>
+        <div class="row">
+            <input type="range" min="100" max="250" value="100" id="height" oninput="calculate()">
+            <span id="height-val">100 cm</span>
+        </div>
+
+        <p id="result">20.0</p>
+        <p id="category">Normal weight</p>
+    </div>
+  
+</div>
+            <br>
+
+<form name="converter">
+<label data-text="Centimeter">	
+<input type="text" name="cm" onChange="cmConverter()" required="">
+</label>
+<br>
+<label data-text="Inches">
+<input type="text" name="inch" onChange="inchConverter()" required="">
+</label>
+<br>
+<label data-text="Feet"><input type="text" name="feet" onChange="feetConverter()" required="">
+</label>
+<br> <br>
+    <input type="button" value="Convert" title="Click here to convert.">
+<input type="button" value="Clear"  
+title="Click here to clear the text box."
+onclick="Clear()"/>
+</form>
+
+        <br>
+<div id="clockContainer">
+  <h1> The current time is </h1>
+  <p id="clock"></p>      
+        </div>
+        
+<div id="countdownContainer">
+   <h1> Countdown to the end of your exercise goals </h1>
+    <p id="countdown"></p></div>
+
+
+    <div class="accordion-body">
+  <div class="accordion">
+    <h1 id="freq">Frequently Asked Questions</h1>
+    <hr>
+    <div class="accordionContainer">
+      <div class="label">What is the price of a membership?</div>
+      <div class="content">Memberships for Fitness Inbound start at a base amount of €200 per year (per person). You are 
+        able to pay as you go for €7 or you can pay monthly for €30. To find out more information, please be sure to contact us</div>
+    </div>
+    <hr>
+    <div class="accordionContainer">
+      <div class="label">Where are we located?</div>
+      <div class="content"><iframe src="https://www.google.com/maps/embed?pb=!4v1670278995670!6m8!1m7!1sJtCkwQ6_v78c9trGvXSMsQ!2m2!1d52.66153314748218!2d-8.619061893609054!3f241.7468952165048!4f3.5206026238291344!5f0.7820865974627469" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    </div>
+    <hr>
+    <div class="accordionContainer">
+      <div class="label">When did we open?</div>
+      <div class="content">We opened Fitness Inbound a year ago (2021) and have been actively improving upon what we already have implemented along with adding new things to the gym, almost weekly. We are very proud of this</div>
+    </div>
+    <hr>
+    <div class="accordionContainer">
+      <div class="label">How many members do we have?</div>
+      <div class="content">As of right now, we currently have 200+ members on the yearly plan, 160 members on the monthly plan and we cannot say for certain how much are paying as they go.  </div>
+    </div> <hr>
+      
+        </div>
+            </div>
+          
+    </div>
+ 
+    
+<script>
+  const accordion = document.getElementsByClassName('accordionContainer');
+
+for (i=0; i<accordion.length; i++) {
+  accordion[i].addEventListener('click', function () {
+    this.classList.toggle('active')
+  })
+}
+    
+    var count = 0;
+var i = 0;
+var slider = document.getElementsByClassName("slider");
+var line = document.getElementsByClassName("line");
+
+auto();
+
+function show(n) {
+    for(i = 0; i < slider.length; i++) {    // slider.length = 2
+        slider[i].style.display = "none";
+    }
+    for(i = 0; i < line.length; i++) {  // line.length = 2
+        line[i].className = line[i].className.replace("active");
+    }
+    slider[n-1].style.display=("block");
+    line[n-1].className += " active";
+}
+
+function auto() {
+    count++;
+    if(count > slider.length) {
+        count = 1;
+    }
+    show(count);
+    setTimeout(auto, 6000);
+}
+
+function plusSlide(n) {
+    count += n;
+    if(count > slider.length) {
+        count = 1;
+    }
+    if (count < 1) {
+        count = slider.length;
+    }
+    show(count);
+}
+
+function currentSlide(n) {
+    count += n;
+    if(count > slider.length) {
+        count = 1;
+    }
+    if (count < 1) {
+        count = slider.length;
+    }
+    show(count);
+}
+</script>
+        
+        <h2>Quote of the Day</h2>
+            <p>Press the below button to receive a random quote!</p>
+        <div class="quotesOutput">
+            <p id="generatedQuote">"The greatest glory in living lies not in never falling, but in rising every time we fall."</p>
+            <span id="AuthorName">--Nelson Mandela</span>
+        </div>
+        <button onclick="generateQoute()">New Quote</button>
+        
+        <script>
+            const arrayOfQuotes = [
+    {'author': 'Nelson Mandela', 
+        'quote': 'The greatest glory in living lies not in never falling, but in rising every time we fall.'
+    },
+    {'author': 'Walt Disney', 
+        'quote': 'The way to get started is to quit talking and begin doing.'
+    },
+    {'author': 'Eleanor Roosevelt', 
+        'quote': 'If life were predictable it would cease to be life, and be without flavor.'
+    },
+    {'author': 'Oprah Winfrey', 
+        'quote': 'If you look at what you have in life, you`ll always have more. If you look at what you don`t have in life, you`ll never have enough'
+    },
+    {'author': 'James Cameron', 
+        'quote': 'If you set your goals ridiculously high and it`s a failure, you will fail above everyone else`s success'
+    },
+    {'author': 'Elbert Hubbard', 
+        'quote': 'Do not take life too seriously. You will not get out alive.'
+    },
+    {'author': 'John Lennon', 
+        'quote': 'Life is what happens when you`re busy making other plans.'
+    }
+];
+// Create a function to generate quote from array
+function generateQoute(){
+    const random = Number.parseInt(Math.random()*arrayOfQuotes.length + 1);
+    document.querySelector("#generatedQuote")
+    .textContent = `\"${arrayOfQuotes[random].quote}\"`;
+    document.querySelector("#AuthorName")
+    .textContent = `--${arrayOfQuotes[random].author}`;
+}
+        </script>
+    
+            <br>
+            <footer class="below">
+                <ul class="social-icon">
+                    <li class="social-icon__item"><a class="social-icon__link" href="https://www.facebook.com/">
+                            <ion-icon name="logo-facebook"></ion-icon>
+                        </a></li>
+                    <li class="social-icon__item"><a class="social-icon__link" href="https://twitter.com/">
+                            <ion-icon name="logo-twitter"></ion-icon>
+                        </a></li>
+                    <li class="social-icon__item"><a class="social-icon__link" href="https://www.linkedin.com/">
+                            <ion-icon name="logo-linkedin"></ion-icon>
+                        </a></li>
+                    <li class="social-icon__item"><a class="social-icon__link" href="https://www.instagram.com/">
+                            <ion-icon name="logo-instagram"></ion-icon>
+                        </a></li>
+                </ul>
+                <ul class="menu">
+                        <li class="menu__item"><a class="menu__link" href="index.html">Home</a></li>
+                        <li class="menu__item"><a class="menu__link" href="information.html">Information</a></li>
+                        <li class="menu__item"><a class="menu__link" href="equipment.html">Equipment</a></li>
+                        <li class="menu__item"><a class="menu__link" href="admin.html">Administration Area</a></li>
+                        <li class="menu__item"><a class="menu__link" href="login.html">Log In</a></li>
+                        <li class="menu__item"><a class="menu__link" href="registration.html">Registration</a></li>
+                        <li class="menu__item"><a class="menu__link" href="contactUs.html">Contact Us</a></li>
+                    </ul>
+                <div class="datetime">
+                    <p><span id='date-time'></span>.</p>
+                </div>
+                <script>
+                    var date = new Date();
+                    var current_date = date.getFullYear()+"/"+(date.getMonth()+1)+"/"+ date.getDate();
+                    var current_time = date.getHours()+":"+date.getMinutes()+":"+ date.getSeconds();
+                    var date_time = current_date+" "+current_time;	
+                    document.getElementById("date-time").innerHTML = date_time;
+                </script>
+                <p> K00273673 - Luke Kelly</p>
+                <p>&copy;2022 FitnessInbound | All Rights Reserved</p>
+                <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+                <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+            </footer>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title> Fitness Inbound | Equipment Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,inital-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style/css.css">
+    <link rel="icon" href="images/home.png" type="image/x-icon">
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        
+            "use strict";
+
+            const $ = selector => document.querySelector(selector);
+
+            document.addEventListener("DOMContentLoaded", () => {
+    
+            const caption = $("#caption");           // the h2 element
+            const mainImage = $("#main-image");      // the main img element
+    
+    // get all the <a> tags in the ul element
+            const imageLinks = $("#imagesList").querySelectorAll("a");
+   
+
+ // process image links
+            for ( let link of imageLinks ) {
+        
+        // preload image
+                const image = new Image();
+                image.src = link.href;
+        
+        // attach event handler
+                link.addEventListener("click", evt => {
+
+            // set new image and caption
+                    mainImage.src = link.href;
+                    mainImage.alt = link.title;
+                    caption.textContent = link.title;
+            
+ 
+ // cancel the default action of the event
+                    evt.preventDefault();
+                });
+        }
+
+    // set focus on first image link
+            imageLinks[0].focus();
+                });
+        
+            "use strict";
+        
+            $(document).ready(() => {
+
+    // process each img tag
+            $("#image_rollovers img").each( (index, img) => {
+                const oldURL = img.src;      // gets the src attribute
+                const newURL = img.id;       // gets the id attribute
+
+        // preload rollover image		
+                const rolloverImage = new Image();
+                rolloverImage.src = newURL;
+
+        // set up event handlers for hovering over an image
+                $(img).hover(   // use jQuery syntax to access hover() method
+                    () => img.src = newURL,  // hover over
+                    () => img.src = oldURL   // hover out
+                ); 
+            });
+        });
+            $(document).ready(function(){
+  
+            var interval = window.setInterval(rotateSlides, 3000)
+  
+            function rotateSlides(){
+                var $firstSlide = $('#carousel').find('div:first');
+                var width = $firstSlide.width();
+    
+                $firstSlide.animate({marginLeft: -width}, 1000, function(){
+                var $lastSlide = $('#carousel').find('div:last')
+                $lastSlide.after($firstSlide);
+                $firstSlide.css({marginLeft: 0})
+            })
+        }
+                $('#left-arrow').click(previousSlide);
+                $('#right-arrow').click(nextSlide);
+                $('.slide-image').click(nextSlide);
+
+                function nextSlide(){
+                // Go to next slide
+                }
+
+                function previousSlide(){
+                // Go to previous slide
+                }
+                
+                function nextSlide(){
+                    window.clearInterval(interval);
+                    var $currentSlide = $('#carousel').find('div:first');
+                    var width = $currentSlide.width();
+                    $currentSlide.animate({marginLeft: -width}, 1000, function(){
+                        var $lastSlide = $('#carousel').find('div:last')
+                        $lastSlide.after($currentSlide);
+                        $currentSlide.css({marginLeft: 0})
+                        interval = window.setInterval(rotateSlides, 3000);
+                    });
+                }
+                function previousSlide(){
+                  window.clearInterval(interval);
+                  var $currentSlide = $('#carousel').find('div:first');
+                  var width = $currentSlide.width();
+                  var $previousSlide = $('#carousel').find('div:last')
+                  $previousSlide.css({marginLeft: -width})
+                  $currentSlide.before($previousSlide);
+                  $previousSlide.animate({marginLeft: 0}, 1000, function(){
+                    interval = window.setInterval(rotateSlides, 3000);
+                  });
+                }
+            })
+    </script>
+    <div class="grid-navBar">
+        <nav>
+            <ul class="navBar">
+                <li> <a href="index.html">Home </a> </li>
+                <li> <a href="information.html">Information </a> </li>
+                <li> <a class="active" href="equipment.html">Equipment </a> </li>
+                <li> <a href="admin.html">Administration Area </a> </li>
+                <li> <a href="login.html">Log in </a> </li>
+                <li> <a href="registration.html">Registration </a> </li>
+                <li> <a href="contactUs.html">Contact Us </a> </li>
+                <li> <a href="index.html"> <img src="images/home.png" alt="home icon image" class="homeIcon"></a> </li>
+                <div class="search-container">
+                    <input class="search expandright" id="searchright" type="search" name="q" placeholder="Search something">
+                    <label class="button searchbutton" for="searchright"><span class="mglass">&#9906;</span></label>
+                </div>
+            </ul>
+        </nav>
+    </div>
+    <div class="container">
+        <h1> Equipment </h1>
+        <div class="headerText">
+            <p> “Machines allow you to focus on one muscle group at a time,” explains Nick Distelbrink, fitness director at Boston Sports Clubs. “So if you have very limited experience and you don’t know how to coordinate contractions simultaneously through different areas of your body, it’s a great way to focus on just one muscle group.” </p>
+        </div>
+        <br>
+        <div class="contain">
+        <div id="imagesList">
+            <a href="images/equipment1.jpeg" title="Machine 1"><img src="images/thumbnails/equipment1.jpeg" alt="Machine 1"></a>
+            <a href="images/equipment2.jpg" title="Machine 2"><img src="images/thumbnails/equipment2.jpg" alt="Machine 2"></a>
+            <a href="images/equipment3.jpg" title="Machine 3"><img src="images/thumbnails/equipment3.jpg" alt="Machine 3"></a>
+            <a href="images/equipment4.jpg" title="Machine 4"><img src="images/thumbnails/equipment4.jpg" alt="Machine 4"></a>
+            <a href="images/equipment5.jpg" title="Machine 5"><img src="images/thumbnails/equipment5.jpg" alt="Machine 5"></a>
+            <a href="images/equipment6.jpeg" title="Machine 6"><img src="images/thumbnails/equipment6.jpeg" alt="Machine 6"></a>
+        </div>
+        <h2 id="caption"></h2>
+        <p><img id="main-image" src="images/equipment1.jpeg" alt="Machine 1"></p>
+</div>
+        
+        
+        <br>
+            <footer class="below">
+                <ul class="social-icon">
+                    <li class="social-icon__item"><a class="social-icon__link" href="https://www.facebook.com/">
+                            <ion-icon name="logo-facebook"></ion-icon>
+                        </a></li>
+                    <li class="social-icon__item"><a class="social-icon__link" href="https://twitter.com/">
+                            <ion-icon name="logo-twitter"></ion-icon>
+                        </a></li>
+                    <li class="social-icon__item"><a class="social-icon__link" href="https://www.linkedin.com/">
+                            <ion-icon name="logo-linkedin"></ion-icon>
+                        </a></li>
+                    <li class="social-icon__item"><a class="social-icon__link" href="https://www.instagram.com/">
+                            <ion-icon name="logo-instagram"></ion-icon>
+                        </a></li>
+                </ul>
+                <ul class="menu">
+                        <li class="menu__item"><a class="menu__link" href="index.html">Home</a></li>
+                        <li class="menu__item"><a class="menu__link" href="information.html">Information</a></li>
+                        <li class="menu__item"><a class="menu__link" href="equipment.html">Equipment</a></li>
+                        <li class="menu__item"><a class="menu__link" href="admin.html">Administration Area</a></li>
+                        <li class="menu__item"><a class="menu__link" href="login.html">Log In</a></li>
+                        <li class="menu__item"><a class="menu__link" href="registration.html">Registration</a></li>
+                        <li class="menu__item"><a class="menu__link" href="contactUs.html">Contact Us</a></li>
+                    </ul>
+                <div class="datetime">
+                    <p><span id='date-time'></span>.</p>
+                </div>
+                <script>
+                    var date = new Date();
+                    var current_date = date.getFullYear()+"/"+(date.getMonth()+1)+"/"+ date.getDate();
+                    var current_time = date.getHours()+":"+date.getMinutes()+":"+ date.getSeconds();
+                    var date_time = current_date+" "+current_time;	
+                    document.getElementById("date-time").innerHTML = date_time;
+                </script>
+                <p> K00273673 - Luke Kelly</p>
+                <p>&copy;2022 FitnessInbound | All Rights Reserved</p>
+                <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+                <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+            </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title> Fitness Inbound | Admin Add Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,inital-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style/css.css">
+    <link rel="icon" href="images/home.png" type="image/x-icon">
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $("document").ready(function() { 
+            $("#adminID, #productID, #description").focusin(function(){
+                $(this).css("background-color", "lightgray");
+            });
+            
+            $("#adminID, #productID, #description").focusout(function(){
+                $(this).css("background-color", "white");
+            });
+                
+            $("#adminID, #productID, #description").mouseenter(function(){
+                $(this).css("background-color", "lightgray");
+            });
+            
+            $("#adminID, #productID, #description").mouseleave(function(){
+                $(this).css("background-color", "white");
+            });
+        });
+          
+        function adminValidate() {
+            var adminID_val = document.getElementById("adminID").value;
+            if (adminID_val == null || adminID_val == "") {
+                document.getElementById("adminError").innerHTML = " Please enter AdminID";
+                return false;}
+            else document.getElementById("adminError").innerHTML = "*";
+            
+            var productID_val = document.getElementById("productID").value;
+            if(productID_val == null || productID_val == ""){
+                document.getElementById("productError").innerHTML = " Please enter productID";
+                return false;}
+            else document.getElementById("productError").innerHTML = "*";
+            
+            var desc_val = document.getElementById("description").value;
+            if(desc_val == null || desc_val == ""){
+                document.getElementById("descError").innerHTML = " Please enter Description";
+                return false;}
+            else document.getElementById("descError").innerHTML = "*";
+        }
+    </script>
+
+
+    <div class="grid-navBar">
+
+        <nav>
+            <ul class="navBar">
+                <li> <a href="index.html">Home </a> </li>
+                <li> <a href="information.html">Information </a> </li>
+                <li> <a href="equipment.html">Equipment </a> </li>
+                <li> <a class="active" href="admin.html">Administration Area </a> </li>
+                <li> <a href="login.html">Log in </a> </li>
+                <li> <a href="registration.html">Registration </a> </li>
+                <li> <a href="contactUs.html">Contact Us </a> </li>
+                <li> <a href="index.html"> <img src="images/home.png" alt="home icon image" class="homeIcon"></a> </li>
+                <div class="search-container">
+                    <input class="search expandright" id="searchright" type="search" name="q" placeholder="Search">
+                    <label class="button searchbutton" for="searchright"><span class="mglass">&#9906;</span></label>
+                </div>
+            </ul>
+        </nav>
+    </div>
+    
+    <div class="container">
+
+        <h1> Add </h1>
+        <div class="headerText">
+            <p> Welcome to the Admin Add Page! <br> Please fill up the product details below!</p>
+        </div>
+        <br>
+
+        <div class="contain">
+
+  <div class="wrapper">
+    <div class="contacts">
+      <h3>What can you do, once logged in to the Admin Page? </h3>
+
+      <ul>
+          <li><p>You will be able to check the records</p></li>
+          <li><p>You will be able to get exclusive information</p></li>
+          <li><p>You will get exclusive access to events</p></li>
+          <li><p>You will be able to edit products/pages</p></li>
+          <li><p>You will be able to add products/pages</p></li>
+          <li><p>You will be able to update products/pages</p></li>
+          <li><p>You will be able to delete products/pages</p></li>
+      </ul>
+    </div>
+
+    <div class="form" action="http://litstudentprojects.net/rwd-a2-response.php" method="post" onSubmit="return adminValidate();" id="form">
+      <h3>Please enter in your details</h3>
+      <form action="http://litstudentprojects.net/rwd-a2-response.php">
+        <p>
+          <label for="adminID">AdminID <a id="adminError">*</a><input type="text" name="adminID" id="adminID" placeholder="12345QT"></label>
+        </p>
+        <p>
+          <label for="productID">ProductID <a id="productError">*</a><input type="text" name="productID" id="productID" placeholder="62731T">
+          </label>
+        </p>
+           <p class="full-width">
+          <label for="description">Description <a id="descError">*</a>
+          <textarea name="description" id="description" cols="30" rows="7" placeholder="Blue bar for training"></textarea></label>
+        </p>
+          <p> Done Adding Products? Go Home here -> <a href="index.html"> Home </a></p> <br>
+          <p> Want to Update a Product? Update here -> <a href="update.html"> Update </a></p> <br>
+          <p> Want to Delete a Product> Delete here -> <a href="delete.html"> Delete</a></p>
+        <p class="full-width" input type="submit" value="Submit">
+            <button> Add Product </button> </p>
+      </form>
+    </div>
+  </div>
+</div>
+        <br>
+            <footer class="below">
+
+                <ul class="social-icon">
+                    <li class="social-icon__item"><a class="social-icon__link" href="https://www.facebook.com/">
+                            <ion-icon name="logo-facebook"></ion-icon>
+                        </a></li>
+                    <li class="social-icon__item"><a class="social-icon__link" href="https://twitter.com/">
+                            <ion-icon name="logo-twitter"></ion-icon>
+                        </a></li>
+                    <li class="social-icon__item"><a class="social-icon__link" href="https://www.linkedin.com/">
+                            <ion-icon name="logo-linkedin"></ion-icon>
+                        </a></li>
+                    <li class="social-icon__item"><a class="social-icon__link" href="https://www.instagram.com/">
+                            <ion-icon name="logo-instagram"></ion-icon>
+                        </a></li>
+                </ul>
+                <ul class="menu">
+                        <li class="menu__item"><a class="menu__link" href="index.html">Home</a></li>
+                        <li class="menu__item"><a class="menu__link" href="information.html">Information</a></li>
+                        <li class="menu__item"><a class="menu__link" href="equipment.html">Equipment</a></li>
+                        <li class="menu__item"><a class="menu__link" href="admin.html">Administration Area</a></li>
+                        <li class="menu__item"><a class="menu__link" href="login.html">Log In</a></li>
+                        <li class="menu__item"><a class="menu__link" href="registration.html">Registration</a></li>
+                        <li class="menu__item"><a class="menu__link" href="contactUs.html">Contact Us</a></li>
+                    </ul>
+                <div class="datetime">
+                    <p><span id='date-time'></span>.</p>
+                </div>
+                <script>
+                    var date = new Date();
+                    var current_date = date.getFullYear()+"/"+(date.getMonth()+1)+"/"+ date.getDate();
+                    var current_time = date.getHours()+":"+date.getMinutes()+":"+ date.getSeconds();
+                    var date_time = current_date+" "+current_time;	
+                    document.getElementById("date-time").innerHTML = date_time;
+                </script>
+                <p> K00273673 - Luke Kelly</p>
+                <p>&copy;2022 FitnessInbound | All Rights Reserved</p>
+                <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+                <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+            </footer>
+    </div>
+</body>
+
+</html>

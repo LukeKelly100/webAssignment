@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title> Fitness Inbound | Log In Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,inital-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style/css.css">
+    <link rel="icon" href="images/home.png" type="image/x-icon">
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $("document").ready(function() { 
+            $("#email1, #password1").focusin(function(){
+                $(this).css("background-color", "lightgray");
+            });
+            
+            $("#email1, #password1").focusout(function(){
+                $(this).css("background-color", "white");
+            });
+                
+            $("#email1, #password1").mouseenter(function(){
+                $(this).css("background-color", "lightgray");
+            });
+            
+            $("#email1, #password1").mouseleave(function(){
+                $(this).css("background-color", "white");
+            });
+        });
+        
+        function passwordFunction1() {
+              var x = document.getElementById("password1");
+              if (x.type === "password") {
+                x.type = "text";
+              } else {
+                x.type = "password";
+              }
+            } 
+          
+        function NameValidate() {
+            var email1_val = document.getElementById("email1").value;
+            if (email1_val == null || email1_val == "") {
+                document.getElementById("emailError").innerHTML = " Please enter email";
+                return false;}
+            else document.getElementById("emailError").innerHTML = "*";
+            
+            var password1_val = document.getElementById("password1").value;
+            if(password1_val == null || password1_val == ""){
+                document.getElementById("passwordError").innerHTML = " Please enter password";
+                return false;}
+            else document.getElementById("passwordError").innerHTML = "*";
+        }
+    </script>
+
+
+    <div class="grid-navBar">
+
+        <nav>
+            <ul class="navBar">
+                <li> <a href="index.html">Home </a> </li>
+                <li> <a href="information.html">Information </a> </li>
+                <li> <a href="equipment.html">Equipment </a> </li>
+                <li> <a href="admin.html">Administration Area </a> </li>
+                <li> <a class="active" href="login.html">Log in </a> </li>
+                <li> <a href="registration.html">Registration </a> </li>
+                <li> <a href="contactUs.html">Contact Us </a> </li>
+                <li> <a href="index.html"> <img src="images/home.png" alt="home icon image" class="homeIcon"></a> </li>
+                <div class="search-container">
+                    <input class="search expandright" id="searchright" type="search" name="q" placeholder="Search something">
+                    <label class="button searchbutton" for="searchright"><span class="mglass">&#9906;</span></label>
+                </div>
+            </ul>
+        </nav>
+    </div>
+    
+    <div class="container">
+
+        <h1> Log in </h1>
+        <div class="headerText">
+            <p> Welcome to the Log In Page! <br> Please fill up your Log In Details below!</p>
+        </div>
+        <br>
+
+        <div class="contain">
+
+  <div class="wrapper">
+    <div class="contacts">
+      <h3>What can you do, once logged in? </h3>
+
+      <ul>
+          <li><p>You will be able to check the records</p></li>
+          <li><p>You will be able to get exclusive information</p></li>
+          <li><p>You will get exclusive access to events</p></li>
+          <li><p>You will be able to edit products/pages</p></li>
+      </ul>
+    </div>
+
+    <div class="form" action="http://litstudentprojects.net/rwd-a2-response.php" method="post" onSubmit="return NameValidate();" id="form">
+      <h3>Please enter in your details</h3>
+      <form action="http://litstudentprojects.net/rwd-a2-response.php">
+        <p>
+          <label for="email1">Email Address <a id="emailError">*</a> <input type="email" name="email1" id="email1" placeholder="CiaranOConnor@gmail.com"></label>
+        </p>
+        <p>
+          <label for="password">Password <a id="passwordError">*</a> <input type="password" name="password1" id="password1" placeholder="Password">
+          <img src="images/hide.png" alt="image" onclick="passwordFunction1()" class="hideAndShow" id="hideAndShow"></label>
+        </p>
+          <p> Don't have an account? Create one here -> <a href="registration.html"> Sign Up</a></p>
+        <p class="full-width" input type="submit" value="Submit">
+          <button> Log In </button>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+        <br>
+            <footer class="below">
+
+                <ul class="social-icon">
+                    <li class="social-icon__item"><a class="social-icon__link" href="https://www.facebook.com/">
+                            <ion-icon name="logo-facebook"></ion-icon>
+                        </a></li>
+                    <li class="social-icon__item"><a class="social-icon__link" href="https://twitter.com/">
+                            <ion-icon name="logo-twitter"></ion-icon>
+                        </a></li>
+                    <li class="social-icon__item"><a class="social-icon__link" href="https://www.linkedin.com/">
+                            <ion-icon name="logo-linkedin"></ion-icon>
+                        </a></li>
+                    <li class="social-icon__item"><a class="social-icon__link" href="https://www.instagram.com/">
+                            <ion-icon name="logo-instagram"></ion-icon>
+                        </a></li>
+                </ul>
+                <ul class="menu">
+                        <li class="menu__item"><a class="menu__link" href="index.html">Home</a></li>
+                        <li class="menu__item"><a class="menu__link" href="information.html">Information</a></li>
+                        <li class="menu__item"><a class="menu__link" href="equipment.html">Equipment</a></li>
+                        <li class="menu__item"><a class="menu__link" href="admin.html">Administration Area</a></li>
+                        <li class="menu__item"><a class="menu__link" href="login.html">Log In</a></li>
+                        <li class="menu__item"><a class="menu__link" href="registration.html">Registration</a></li>
+                        <li class="menu__item"><a class="menu__link" href="contactUs.html">Contact Us</a></li>
+                    </ul>
+                <div class="datetime">
+                    <p><span id='date-time'></span>.</p>
+                </div>
+                <script>
+                    var date = new Date();
+                    var current_date = date.getFullYear()+"/"+(date.getMonth()+1)+"/"+ date.getDate();
+                    var current_time = date.getHours()+":"+date.getMinutes()+":"+ date.getSeconds();
+                    var date_time = current_date+" "+current_time;	
+                    document.getElementById("date-time").innerHTML = date_time;
+                </script>
+                <p> K00273673 - Luke Kelly</p>
+                <p>&copy;2022 FitnessInbound | All Rights Reserved</p>
+                <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+                <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+            </footer>
+    </div>
+</body>
+
+</html>
